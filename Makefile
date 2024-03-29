@@ -4,6 +4,9 @@ CC = cc
 CFILES := \
 	single_stack_ops.c \
 	checks.c \
+	ft_input.c \
+	ft_input_errors.c \
+	ft_array_utils.c \
 
 BONUSFILES := $(CFILES)
 BONUSFILES += ft_checker.c
