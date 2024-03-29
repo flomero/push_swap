@@ -6,7 +6,7 @@
 /*   By: flfische <flfische@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 16:29:00 by flfische          #+#    #+#             */
-/*   Updated: 2024/03/29 15:13:25 by flfische         ###   ########.fr       */
+/*   Updated: 2024/03/29 16:43:26 by flfische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,21 @@ typedef struct s_push_swap
 	t_stack	a;
 	t_stack	b;
 }		t_push_swap;
+
+typedef enum e_ops
+{
+	sa,
+	sb,
+	ss,
+	pa,
+	pb,
+	ra,
+	rb,
+	rr,
+	rra,
+	rrb,
+	rrr
+}		t_ops;
 
 // generic stack operations
 void	ft_do_swap(t_stack *stack);
