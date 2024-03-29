@@ -3,6 +3,7 @@ CC = cc
 
 CFILES := \
 	ft_push_swap.c \
+	single_stack_ops.c \
 
 OBJDIR := obj
 OFILES := $(addprefix $(OBJDIR)/, $(CFILES:.c=.o))
