@@ -6,7 +6,7 @@
 /*   By: flfische <flfische@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 14:07:45 by flfische          #+#    #+#             */
-/*   Updated: 2024/03/29 14:34:50 by flfische         ###   ########.fr       */
+/*   Updated: 2024/03/29 17:23:58 by flfische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ int	ft_parse_input(int argc, char **argv, int **array)
 		return (-1);
 	while (i < argc)
 	{
+		if (ft_strlen(argv[i]) == 0)
+			return (ft_set_input_error(1), 0);
 		split = ft_split(argv[i], ' ');
 		if (split == NULL)
 			return (ft_set_input_error(1), 0);

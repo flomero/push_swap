@@ -8,6 +8,7 @@ CFILES := \
 	ft_doop_both.c \
 	ft_checks.c \
 	ft_input.c \
+	ft_init.c \
 	ft_input_errors.c \
 	ft_array_utils.c \
 
