@@ -2,7 +2,7 @@ CC = cc
 #CFLAGS = -Wall -Wextra -Werror
 
 CFILES := \
-	ft_single_stack_ops.c \
+	ft_generic_stack_ops.c \
 	ft_checks.c \
 	ft_input.c \
 	ft_input_errors.c \
