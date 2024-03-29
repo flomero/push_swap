@@ -6,7 +6,7 @@
 /*   By: flfische <flfische@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 16:53:10 by flfische          #+#    #+#             */
-/*   Updated: 2024/03/25 18:16:47 by flfische         ###   ########.fr       */
+/*   Updated: 2024/03/29 13:12:30 by flfische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,30 +61,34 @@ void	ft_free_str_array(char **array)
 		free(array[i]);
 		i++;
 	}
+	free(array[i]);
 	free(array);
 }
 
-int	ft_parse_input(int argc, char **argv, int *array)
+int	ft_parse_input(int argc, char **argv, int **array)
 {
 	int		i;
+	int		j;
 	int		count;
 	int		arr_size;
 	char	**split;
 
-	i = 0;
+	i = 1;
+	j = 0;
 	arr_size = argc - 1;
-	array = malloc(sizeof(int) * (arr_size));
-	while (i < argc - 1)
+	*array = malloc(sizeof(int) * arr_size);
+	if (*array == NULL)
+		return (-1);
+	while (i < argc)
 	{
-		if (i > 0)
-			ft_putnbr_fd(array[i - 1], 1);
-		split = ft_split(argv[i + 1], ' ');
+		split = ft_split(argv[i], ' ');
 		if (split == NULL)
 			return (ft_set_input_error(1), 0);
 		count = 0;
 		while (split[count] != NULL)
 		{
-			array[i] = ft_atoi_ps(split[count]);
+			(*array)[j] = ft_atoi_ps(split[count]);
+			j++;
 			if (*ft_get_input_error() == 1)
 				return (ft_free_str_array(split), 0);
 			free(split[count]);
@@ -93,25 +97,18 @@ int	ft_parse_input(int argc, char **argv, int *array)
 		free(split);
 		i++;
 	}
-	return (i);
+	return (j);
 }
 
-int	main(int argc, char **arv)
+int	main(int argc, char **argv)
 {
 	int	i;
-	int	j;
 	int	*input;
 
 	input = NULL;
 	if (argc < 2)
 		return (0);
-	i = ft_parse_input(argc, arv, input);
-	j = 0;
-	while (j < i)
-	{
-		ft_putnbr_fd(input[j], 1);
-		ft_putchar_fd('\n', 1);
-		j++;
-	}
+	i = ft_parse_input(argc, argv, &input);
+	ft_putintarr_fd(input, i, 1);
 	return (0);
 }
