@@ -6,7 +6,7 @@
 /*   By: flfische <flfische@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 16:29:00 by flfische          #+#    #+#             */
-/*   Updated: 2024/03/29 18:00:57 by flfische         ###   ########.fr       */
+/*   Updated: 2024/03/29 20:13:44 by flfische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int		ft_parse_input(int argc, char **argv, int **array);
 int		ft_atoi_ps(const char *str);
 int		*ft_get_input_error(void);
 void	ft_set_input_error(int error);
-void	ft_init_stacks(t_push_swap *ps);
+void	ft_init_stacks(t_push_swap *ps, int *arr, int size, int print);
 
 // array utils
 int		*ft_realloc_int(int *array, int *size);

@@ -6,14 +6,17 @@
 /*   By: flfische <flfische@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 16:52:05 by flfische          #+#    #+#             */
-/*   Updated: 2024/03/29 17:59:25 by flfische         ###   ########.fr       */
+/*   Updated: 2024/03/29 20:13:57 by flfische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-void	ft_init_stacks(t_push_swap *ps)
+void	ft_init_stacks(t_push_swap *ps, int *arr, int size, int print)
 {
+	ps->input = arr;
+	ps->size = size;
+	ps->print = print;
 	ps->a.stack = malloc(sizeof(int) * ps->size);
 	if (!ps->a.stack)
 	{

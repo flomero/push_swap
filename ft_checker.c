@@ -6,7 +6,7 @@
 /*   By: flfische <flfische@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 13:55:16 by flfische          #+#    #+#             */
-/*   Updated: 2024/03/29 18:02:58 by flfische         ###   ########.fr       */
+/*   Updated: 2024/03/29 20:16:27 by flfische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,27 +68,11 @@ int	ft_execute_ops(t_push_swap *ps, t_ops op)
 	return (1);
 }
 
-int	main(int argc, char **argv)
+int	ft_checker_loop(t_push_swap *ps)
 {
-	int			*array;
-	int			len;
 	char		*line;
 	t_ops		op;
-	t_push_swap	*ps;
 
-	if (argc < 2)
-		return (0);
-	ft_set_input_error(0);
-	len = ft_parse_input(argc, argv, &array);
-	if (*ft_get_input_error() == 1)
-		return (free(array), ft_printf("Error\n"), 1);
-	ps = malloc(sizeof(t_push_swap));
-	if (!ps)
-		return (free(array), ft_printf("Error\n"), 1);
-	ps->input = array;
-	ps->size = len;
-	ps->print = 0;
-	ft_init_stacks(ps);
 	line = get_next_line(0);
 	while (line)
 	{
@@ -100,6 +84,28 @@ int	main(int argc, char **argv)
 		free(line);
 		line = get_next_line(0);
 	}
+	free(line);
+	return (0);
+}
+
+int	main(int argc, char **argv)
+{
+	int			*array;
+	int			len;
+	t_push_swap	*ps;
+
+	if (argc < 2)
+		return (0);
+	ft_set_input_error(0);
+	len = ft_parse_input(argc, argv, &array);
+	if (*ft_get_input_error() == 1)
+		return (free(array), ft_printf("Error\n"), 1);
+	ps = malloc(sizeof(t_push_swap));
+	if (!ps)
+		return (free(array), ft_printf("Error\n"), 1);
+	ft_init_stacks(ps, array, len, 0);
+	if (ft_checker_loop(ps))
+		return (1);
 	if (ft_is_sorted(ps->a.stack, len))
 		ft_printf("OK\n");
 	else
