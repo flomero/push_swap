@@ -1,58 +1,69 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations.c                                       :+:      :+:    :+:   */
+/*   ft_single_stack_ops.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flfische <flfische@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 13:18:50 by flfische          #+#    #+#             */
-/*   Updated: 2024/03/29 13:22:49 by flfische         ###   ########.fr       */
+/*   Updated: 2024/03/29 15:03:26 by flfische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-void	ft_do_swap(int *stack, int len)
+void	ft_do_swap(t_stack *stack)
 {
 	int	tmp;
 
-	if (len < 2)
+	if (stack->len < 2)
 		return ;
-	tmp = stack[0];
-	stack[0] = stack[1];
-	stack[1] = tmp;
+	tmp = stack->stack[0];
+	stack->stack[0] = stack->stack[1];
+	stack->stack[1] = tmp;
 }
 
-void	ft_do_rot(int *stack, int len)
+void	ft_do_rot(t_stack *stack)
 {
 	int	tmp;
 	int	i;
 
-	if (len < 2)
+	if (stack->len < 2)
 		return ;
-	tmp = stack[0];
+	tmp = stack->stack[0];
 	i = 0;
-	while (i < len - 1)
+	while (i < stack->len - 1)
 	{
-		stack[i] = stack[i + 1];
+		stack->stack[i] = stack->stack[i + 1];
 		i++;
 	}
-	stack[i] = tmp;
+	stack->stack[i] = tmp;
 }
 
-void	ft_do_revrot(int *stack, int len)
+void	ft_do_revrot(t_stack *stack)
 {
 	int	tmp;
 	int	i;
 
-	if (len < 2)
+	if (stack->len < 2)
 		return ;
-	tmp = stack[len - 1];
-	i = len - 1;
+	tmp = stack->stack[stack->len - 1];
+	i = stack->len - 1;
 	while (i > 0)
 	{
-		stack[i] = stack[i - 1];
+		stack->stack[i] = stack->stack[i - 1];
 		i--;
 	}
-	stack[i] = tmp;
+	stack->stack[i] = tmp;
+}
+
+void	ft_push_stacks(t_stack *from, t_stack *to)
+{
+	int	tmp;
+
+	if (from->len < 1)
+		return ;
+	tmp = from->stack[0];
+	ft_stack_pop(from);
+	ft_stack_push(to, tmp);
 }
