@@ -1,36 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_push_swap.h                                     :+:      :+:    :+:   */
+/*   checks.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flfische <flfische@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/25 16:29:00 by flfische          #+#    #+#             */
-/*   Updated: 2024/03/29 13:28:05 by flfische         ###   ########.fr       */
+/*   Created: 2024/03/29 13:33:04 by flfische          #+#    #+#             */
+/*   Updated: 2024/03/29 13:33:31 by flfische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PUSH_SWAP_H
-# define FT_PUSH_SWAP_H
+#include "ft_push_swap.h"
 
-# include "libft/libft.h"
-
-typedef struct s_push_swap
+int	ft_is_sorted(int *stack, int len)
 {
-	int	*stack_a;
-	int	*stack_b;
-	int	*input;
-	int	stack_size;
-	int	pos_a;
-	int	pos_b;
-}		t_push_swap;
+	int	i;
 
-// single stack operations
-void	ft_do_swap(int *stack, int len);
-void	ft_do_rot(int *stack, int len);
-void	ft_do_revrot(int *stack, int len);
-
-// checks
-int		ft_is_sorted(int *stack, int len);
-
-#endif
+	i = 0;
+	while (i < len - 1)
+	{
+		if (stack[i] > stack[i + 1])
+			return (0);
+		i++;
+	}
+	return (1);
+}
