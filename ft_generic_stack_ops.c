@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_single_stack_ops.c                              :+:      :+:    :+:   */
+/*   ft_generic_stack_ops.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flfische <flfische@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 13:18:50 by flfische          #+#    #+#             */
-/*   Updated: 2024/03/29 15:03:26 by flfische         ###   ########.fr       */
+/*   Updated: 2024/03/29 15:16:08 by flfische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,16 @@ void	ft_do_revrot(t_stack *stack)
 void	ft_push_stacks(t_stack *from, t_stack *to)
 {
 	int	tmp;
+	int	tmp2;
 
 	if (from->len < 1)
 		return ;
 	tmp = from->stack[0];
-	ft_stack_pop(from);
-	ft_stack_push(to, tmp);
+	ft_do_revrot(from);
+	from->len--;
+	tmp2 = to->stack[to->len - 1];
+	ft_do_rot(to);
+	to->stack[0] = tmp;
+	to->stack[to->len - 1] = tmp2;
+	to->len++;
 }

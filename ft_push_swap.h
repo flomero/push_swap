@@ -6,7 +6,7 @@
 /*   By: flfische <flfische@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 16:29:00 by flfische          #+#    #+#             */
-/*   Updated: 2024/03/29 15:04:27 by flfische         ###   ########.fr       */
+/*   Updated: 2024/03/29 15:13:25 by flfische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_push_swap
 {
 	int		*input;
 	int		size;
+	int		print;
 	t_stack	a;
 	t_stack	b;
 }		t_push_swap;
@@ -34,6 +35,20 @@ void	ft_do_swap(t_stack *stack);
 void	ft_do_rot(t_stack *stack);
 void	ft_do_revrot(t_stack *stack);
 void	ft_push_stacks(t_stack *from, t_stack *to);
+// doop a
+void	ft_swap_a(t_push_swap *ps);
+void	ft_rot_a(t_push_swap *ps);
+void	ft_revrot_a(t_push_swap *ps);
+void	ft_push_a(t_push_swap *ps);
+// doop b
+void	ft_swap_b(t_push_swap *ps);
+void	ft_rot_b(t_push_swap *ps);
+void	ft_revrot_b(t_push_swap *ps);
+void	ft_push_b(t_push_swap *ps);
+// doop both
+void	ft_swap_both(t_push_swap *ps);
+void	ft_rot_both(t_push_swap *ps);
+void	ft_revrot_both(t_push_swap *ps);
 
 // input
 int		ft_parse_input(int argc, char **argv, int **array);

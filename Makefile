@@ -3,6 +3,9 @@ CC = cc
 
 CFILES := \
 	ft_generic_stack_ops.c \
+	ft_doop_a.c \
+	ft_doop_b.c \
+	ft_doop_both.c \
 	ft_checks.c \
 	ft_input.c \
 	ft_input_errors.c \
