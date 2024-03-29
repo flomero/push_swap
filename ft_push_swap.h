@@ -6,7 +6,7 @@
 /*   By: flfische <flfische@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 16:29:00 by flfische          #+#    #+#             */
-/*   Updated: 2024/03/29 16:56:06 by flfische         ###   ########.fr       */
+/*   Updated: 2024/03/29 18:00:57 by flfische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,5 +78,8 @@ void	ft_free_str_array(char **array);
 
 // checks
 int		ft_is_sorted(int *stack, int len);
+
+// free stuff
+void	ft_free_stacks(t_push_swap *ps);
 
 #endif

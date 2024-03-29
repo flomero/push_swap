@@ -6,7 +6,7 @@
 /*   By: flfische <flfische@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 13:55:16 by flfische          #+#    #+#             */
-/*   Updated: 2024/03/29 17:19:14 by flfische         ###   ########.fr       */
+/*   Updated: 2024/03/29 18:02:58 by flfische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,18 +81,10 @@ int	main(int argc, char **argv)
 	ft_set_input_error(0);
 	len = ft_parse_input(argc, argv, &array);
 	if (*ft_get_input_error() == 1)
-	{
-		free(array);
-		ft_printf("Error\n");
-		return (1);
-	}
+		return (free(array), ft_printf("Error\n"), 1);
 	ps = malloc(sizeof(t_push_swap));
 	if (!ps)
-	{
-		free(array);
-		ft_printf("Error\n");
-		return (1);
-	}
+		return (free(array), ft_printf("Error\n"), 1);
 	ps->input = array;
 	ps->size = len;
 	ps->print = 0;
@@ -102,23 +94,9 @@ int	main(int argc, char **argv)
 	{
 		op = ft_parse_op(line);
 		if (op == -1)
-		{
-			free(ps->a.stack);
-			free(ps->b.stack);
-			free(ps->input);
-			free(ps);
-			ft_printf("Error\n");
-			return (1);
-		}
+			return (ft_free_stacks(ps), ft_printf("Error\n"), 1);
 		if (!ft_execute_ops(ps, op))
-		{
-			free(ps->a.stack);
-			free(ps->b.stack);
-			free(ps->input);
-			free(ps);
-			ft_printf("Error\n");
-			return (1);
-		}
+			return (ft_free_stacks(ps), ft_printf("Error\n"), 1);
 		free(line);
 		line = get_next_line(0);
 	}
@@ -126,10 +104,6 @@ int	main(int argc, char **argv)
 		ft_printf("OK\n");
 	else
 		ft_printf("KO\n");
-	// ft_putintarr_fd(ps->a.stack, ps->a.len, 1);
-	free(ps->a.stack);
-	free(ps->b.stack);
-	free(ps->input);
-	free(ps);
+	ft_free_stacks(ps);
 	return (0);
 }
