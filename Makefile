@@ -2,8 +2,8 @@ CC = cc
 #CFLAGS = -Wall -Wextra -Werror
 
 CFILES := \
-	single_stack_ops.c \
-	checks.c \
+	ft_single_stack_ops.c \
+	ft_checks.c \
 	ft_input.c \
 	ft_input_errors.c \
 	ft_array_utils.c \
