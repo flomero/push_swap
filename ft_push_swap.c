@@ -6,7 +6,7 @@
 /*   By: flfische <flfische@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 16:53:10 by flfische          #+#    #+#             */
-/*   Updated: 2024/03/29 13:12:30 by flfische         ###   ########.fr       */
+/*   Updated: 2024/03/29 13:17:36 by flfische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,25 @@ void	ft_free_str_array(char **array)
 	free(array);
 }
 
+int	*ft_realloc_int(int *array, int *size)
+{
+	int	*new_array;
+	int	i;
+
+	new_array = malloc(sizeof(int) * (*size * 2));
+	if (new_array == NULL)
+		return (NULL);
+	i = 0;
+	while (i < *size)
+	{
+		new_array[i] = array[i];
+		i++;
+	}
+	*size *= 2;
+	free(array);
+	return (new_array);
+}
+
 int	ft_parse_input(int argc, char **argv, int **array)
 {
 	int		i;
@@ -87,6 +106,8 @@ int	ft_parse_input(int argc, char **argv, int **array)
 		count = 0;
 		while (split[count] != NULL)
 		{
+			if (j >= arr_size)
+				*array = ft_realloc_int(*array, &arr_size);
 			(*array)[j] = ft_atoi_ps(split[count]);
 			j++;
 			if (*ft_get_input_error() == 1)
