@@ -11,6 +11,7 @@ CFILES := \
 	ft_init.c \
 	ft_input_errors.c \
 	ft_array_utils.c \
+	ft_simple_sort.c \
 
 BONUSFILES := $(CFILES)
 BONUSFILES += ft_checker.c
