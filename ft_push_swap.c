@@ -6,7 +6,7 @@
 /*   By: flfische <flfische@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 16:53:10 by flfische          #+#    #+#             */
-/*   Updated: 2024/04/03 14:52:35 by flfische         ###   ########.fr       */
+/*   Updated: 2024/04/03 15:58:33 by flfische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,9 @@ int	main(int argc, char **argv)
 		return (0);
 	ft_set_input_error(0);
 	len = ft_parse_input(argc, argv, &input.stack);
+	// ft_printf("len: %d\n", len);
+	if (len == 0)
+		return (ft_printf("Error\n"), 1);
 	if (*ft_get_input_error() == 1)
 		return (free(input.stack), ft_printf("Error\n"), 1);
 	ps = malloc(sizeof(t_push_swap));
