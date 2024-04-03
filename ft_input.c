@@ -6,7 +6,7 @@
 /*   By: flfische <flfische@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 14:07:45 by flfische          #+#    #+#             */
-/*   Updated: 2024/03/29 17:23:58 by flfische         ###   ########.fr       */
+/*   Updated: 2024/04/03 14:55:11 by flfische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,26 @@ int	ft_atoi_ps(const char *str)
 	if (is_negativ)
 		out = -1 * out;
 	return (out);
+}
+
+int	ft_check_double(int *array, int len)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < len)
+	{
+		j = i + 1;
+		while (j < len)
+		{
+			if (array[i] == array[j])
+				return (1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
 }
 
 int	ft_parse_input(int argc, char **argv, int **array)
@@ -75,5 +95,7 @@ int	ft_parse_input(int argc, char **argv, int **array)
 		free(split);
 		i++;
 	}
+	if (ft_check_double(*array, j))
+		return (ft_set_input_error(1), 0);
 	return (j);
 }

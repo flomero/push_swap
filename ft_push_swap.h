@@ -6,7 +6,7 @@
 /*   By: flfische <flfische@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 16:29:00 by flfische          #+#    #+#             */
-/*   Updated: 2024/04/03 14:28:47 by flfische         ###   ########.fr       */
+/*   Updated: 2024/04/03 14:54:54 by flfische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,8 @@ typedef struct s_stack
 
 typedef struct s_push_swap
 {
-	int		*input;
-	int		size;
 	int		print;
+	t_stack	input;
 	t_stack	a;
 	t_stack	b;
 }			t_push_swap;
@@ -68,12 +67,14 @@ void		ft_revrot_both(t_push_swap *ps);
 // input
 int			ft_parse_input(int argc, char **argv, int **array);
 int			ft_atoi_ps(const char *str);
+int			ft_check_double(int *array, int len);
 int			*ft_get_input_error(void);
 void		ft_set_input_error(int error);
 void		ft_init_stacks(t_push_swap *ps, int *arr, int size, int print);
 
 // simple sort
 void		ft_bubble_sort(int *arr, int len);
+void		ft_get_indices(t_stack *src, t_stack *dst);
 
 // array utils
 int			*ft_realloc_int(int *array, int *size);

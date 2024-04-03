@@ -6,7 +6,7 @@
 /*   By: flfische <flfische@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 16:52:05 by flfische          #+#    #+#             */
-/*   Updated: 2024/03/29 20:13:57 by flfische         ###   ########.fr       */
+/*   Updated: 2024/04/03 14:48:29 by flfische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,35 @@
 
 void	ft_init_stacks(t_push_swap *ps, int *arr, int size, int print)
 {
-	ps->input = arr;
-	ps->size = size;
+	ps->input.stack = arr;
+	ps->input.len = size;
 	ps->print = print;
-	ps->a.stack = malloc(sizeof(int) * ps->size);
+	ps->a.stack = malloc(sizeof(int) * ps->input.len);
 	if (!ps->a.stack)
 	{
-		free(ps->input);
+		free(ps->input.stack);
 		free(ps);
 		ft_printf("Error\n");
 		exit(1);
 	}
-	ps->b.stack = malloc(sizeof(int) * ps->size);
+	ps->b.stack = malloc(sizeof(int) * ps->input.len);
 	if (!ps->b.stack)
 	{
 		free(ps->a.stack);
-		free(ps->input);
+		free(ps->input.stack);
 		free(ps);
 		ft_printf("Error\n");
 		exit(1);
 	}
-	ps->a.len = ps->size;
+	ps->a.len = ps->input.len;
 	ps->b.len = 0;
-	ft_memcpy(ps->a.stack, ps->input, sizeof(int) * ps->size);
+	ft_memcpy(ps->a.stack, ps->input.stack, sizeof(int) * ps->input.len);
 }
 
 void	ft_free_stacks(t_push_swap *ps)
 {
 	free(ps->a.stack);
 	free(ps->b.stack);
-	free(ps->input);
+	free(ps->input.stack);
 	free(ps);
 }
