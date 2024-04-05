@@ -13,6 +13,7 @@ CFILES := \
 	ft_array_utils.c \
 	ft_simple_sort.c \
 	ft_sort_three.c \
+	ft_sort_five.c \
 
 BONUSFILES := $(CFILES)
 BONUSFILES += ft_checker.c

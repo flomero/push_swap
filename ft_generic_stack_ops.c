@@ -6,7 +6,7 @@
 /*   By: flfische <flfische@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 13:18:50 by flfische          #+#    #+#             */
-/*   Updated: 2024/03/29 15:16:08 by flfische         ###   ########.fr       */
+/*   Updated: 2024/04/05 19:15:22 by flfische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,13 @@ void	ft_push_stacks(t_stack *from, t_stack *to)
 	if (from->len < 1)
 		return ;
 	tmp = from->stack[0];
-	ft_do_revrot(from);
+	ft_do_rot(from);
 	from->len--;
-	tmp2 = to->stack[to->len - 1];
-	ft_do_rot(to);
+	if (to->len > 0)
+		tmp2 = to->stack[to->len - 1];
+	ft_do_revrot(to);
 	to->stack[0] = tmp;
-	to->stack[to->len - 1] = tmp2;
+	if (to->len > 0)
+		to->stack[to->len] = tmp2;
 	to->len++;
 }
