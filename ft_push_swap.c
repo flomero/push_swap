@@ -6,7 +6,7 @@
 /*   By: flfische <flfische@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 16:53:10 by flfische          #+#    #+#             */
-/*   Updated: 2024/04/05 19:31:10 by flfische         ###   ########.fr       */
+/*   Updated: 2024/04/07 11:29:38 by flfische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ int	main(int argc, char **argv)
 		return (ft_printf("Error\n"), 1);
 	if (*ft_get_input_error() == 1)
 		return (free(input.stack), ft_printf("Error\n"), 1);
+	if (ft_is_sorted(input.stack, len))
+		return (free(input.stack), 0);
 	ps = malloc(sizeof(t_push_swap));
 	if (!ps)
 		return (free(input.stack), ft_printf("Error\n"), 1);
@@ -44,12 +46,14 @@ int	main(int argc, char **argv)
 	ft_get_indices(&ps->input, &ps->a);
 	ft_memcpy(ps->a.stack, ps->input.stack, sizeof(int) * ps->input.len);
 	ps->print = 1;
-	if (ps->a.len == 3)
+	if (ps->a.len == 2)
+		ft_swap_a(ps);
+	else if (ps->a.len == 3)
 		ft_sort_three(ps);
-	else if (ps->a.len == 5)
+	else if (ps->a.len <= 5)
 		ft_sort_five(ps);
 	// else
-	// 	ft_sort(ps);
+	// ft_sort(ps);
 	// ft_print_ps(ps);
 	// ft_push_b(ps);
 	// ft_push_a(ps);
