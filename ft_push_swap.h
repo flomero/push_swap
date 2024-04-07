@@ -6,7 +6,7 @@
 /*   By: flfische <flfische@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 16:29:00 by flfische          #+#    #+#             */
-/*   Updated: 2024/04/07 14:42:51 by flfische         ###   ########.fr       */
+/*   Updated: 2024/04/07 17:10:38 by flfische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define FT_PUSH_SWAP_H
 
 # include "libft/libft.h"
+
+# define CHUCKS_100 2
 
 typedef struct s_stack
 {
@@ -88,6 +90,7 @@ void		ft_get_next_val(t_push_swap *ps, t_range range);
 // stack sort
 void		ft_sort_three(t_push_swap *ps);
 void		ft_sort_five(t_push_swap *ps);
+void		ft_sort_hundred(t_push_swap *ps);
 
 // array utils
 int			*ft_realloc_int(int *array, int *size);
