@@ -6,7 +6,7 @@
 /*   By: flfische <flfische@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 12:36:13 by flfische          #+#    #+#             */
-/*   Updated: 2024/04/05 17:40:52 by flfische         ###   ########.fr       */
+/*   Updated: 2024/04/07 15:31:15 by flfische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ft_sort_three(t_push_swap *ps)
 	int	*arr;
 
 	arr = ps->a.stack;
+	if (ft_is_sorted(ps->a.stack, ps->a.len))
+		return ;
 	if (arr[0] < arr[1] && arr[2] > arr[0])
 	{
 		ft_swap_a(ps);

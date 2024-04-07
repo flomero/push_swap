@@ -6,13 +6,13 @@
 /*   By: flfische <flfische@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 13:55:16 by flfische          #+#    #+#             */
-/*   Updated: 2024/03/29 20:16:27 by flfische         ###   ########.fr       */
+/*   Updated: 2024/04/07 13:31:56 by flfische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-t_ops	ft_parse_op(char *op)
+int	ft_parse_op(char *op)
 {
 	if (!ft_strcmp(op, "sa") || !ft_strcmp(op, "sa\n"))
 		return (sa);
@@ -70,15 +70,17 @@ int	ft_execute_ops(t_push_swap *ps, t_ops op)
 
 int	ft_checker_loop(t_push_swap *ps)
 {
-	char		*line;
-	t_ops		op;
+	char	*line;
+	t_ops	op;
+	int		iop;
 
 	line = get_next_line(0);
 	while (line)
 	{
-		op = ft_parse_op(line);
-		if (op == -1)
+		iop = ft_parse_op(line);
+		if (iop == -1)
 			return (ft_free_stacks(ps), ft_printf("Error\n"), 1);
+		op = (t_ops)op;
 		if (!ft_execute_ops(ps, op))
 			return (ft_free_stacks(ps), ft_printf("Error\n"), 1);
 		free(line);

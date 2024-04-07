@@ -1,5 +1,5 @@
 CC = cc
-#CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 CFILES := \
 	ft_generic_stack_ops.c \
@@ -14,6 +14,7 @@ CFILES := \
 	ft_simple_sort.c \
 	ft_sort_three.c \
 	ft_sort_five.c \
+	ft_sort.c \
 	ft_get_next_val.c \
 
 BONUSFILES := $(CFILES)
