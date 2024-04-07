@@ -6,7 +6,7 @@
 /*   By: flfische <flfische@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 15:06:14 by flfische          #+#    #+#             */
-/*   Updated: 2024/03/29 15:09:41 by flfische         ###   ########.fr       */
+/*   Updated: 2024/04/07 17:25:32 by flfische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,10 @@ void	ft_revrot_a(t_push_swap *ps)
 
 void	ft_push_a(t_push_swap *ps)
 {
-	ft_push_stacks(&ps->b, &ps->a);
-	if (ps->print)
-		ft_putendl_fd("pa", 1);
+	if (ps->b.len > 0)
+	{
+		ft_push_stacks(&ps->b, &ps->a);
+		if (ps->print)
+			ft_putendl_fd("pa", 1);
+	}
 }

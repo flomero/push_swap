@@ -6,7 +6,7 @@
 /*   By: flfische <flfische@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 16:29:00 by flfische          #+#    #+#             */
-/*   Updated: 2024/04/07 17:10:38 by flfische         ###   ########.fr       */
+/*   Updated: 2024/04/07 17:22:33 by flfische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "libft/libft.h"
 
-# define CHUCKS_100 2
+# define CHUCKS_100 5
 
 typedef struct s_stack
 {
