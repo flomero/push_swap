@@ -6,7 +6,7 @@
 /*   By: flfische <flfische@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 18:48:01 by flfische          #+#    #+#             */
-/*   Updated: 2024/04/07 15:43:05 by flfische         ###   ########.fr       */
+/*   Updated: 2024/04/07 18:21:10 by flfische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int	ft_fits_here(t_stack stack, int i)
 {
+	if (stack.len < 2)
+		return (1);
 	if (i < stack.stack[0] && i > stack.stack[stack.len - 1])
 		return (1);
 	if (stack.stack[0] == 0 && i > stack.stack[stack.len - 1])
