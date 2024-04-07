@@ -6,7 +6,7 @@
 /*   By: flfische <flfische@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 16:29:00 by flfische          #+#    #+#             */
-/*   Updated: 2024/04/05 18:56:25 by flfische         ###   ########.fr       */
+/*   Updated: 2024/04/07 11:48:07 by flfische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,12 @@ typedef struct s_push_swap
 	t_stack	a;
 	t_stack	b;
 }			t_push_swap;
+
+typedef struct s_range
+{
+	int		min;
+	int		max;
+}			t_range;
 
 typedef enum e_ops
 {
@@ -75,6 +81,8 @@ void		ft_init_stacks(t_push_swap *ps, int *arr, int size, int print);
 // simple sort
 void		ft_bubble_sort(int *arr, int len);
 void		ft_get_indices(t_stack *src, t_stack *dst);
+
+int			ft_get_next_index(t_stack *stack, int range_min, int range_max);
 
 // stack sort
 void		ft_sort_three(t_push_swap *ps);

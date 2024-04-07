@@ -14,6 +14,7 @@ CFILES := \
 	ft_simple_sort.c \
 	ft_sort_three.c \
 	ft_sort_five.c \
+	ft_get_next_val.c \
 
 BONUSFILES := $(CFILES)
 BONUSFILES += ft_checker.c
