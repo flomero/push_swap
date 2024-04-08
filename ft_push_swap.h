@@ -6,7 +6,7 @@
 /*   By: flfische <flfische@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 16:29:00 by flfische          #+#    #+#             */
-/*   Updated: 2024/04/08 11:45:11 by flfische         ###   ########.fr       */
+/*   Updated: 2024/04/08 13:52:02 by flfische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct s_range
 
 typedef enum e_ops
 {
+	not,
 	sa,
 	sb,
 	ss,
@@ -52,6 +53,8 @@ typedef enum e_ops
 	rrb,
 	rrr
 }			t_ops;
+
+void		ft_print_last_op(t_ops op);
 
 // generic stack operations
 void		ft_do_swap(t_stack *stack);

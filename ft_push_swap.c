@@ -6,7 +6,7 @@
 /*   By: flfische <flfische@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 16:53:10 by flfische          #+#    #+#             */
-/*   Updated: 2024/04/08 11:54:09 by flfische         ###   ########.fr       */
+/*   Updated: 2024/04/08 14:20:43 by flfische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	main(int argc, char **argv)
 	t_stack		input;
 	t_push_swap	*ps;
 
+	ft_printf("%d\n", ft_lower_sqrt(100));
 	if (argc < 2)
 		return (0);
 	ft_set_input_error(0);
@@ -54,6 +55,7 @@ int	main(int argc, char **argv)
 		ft_sort_five(ps);
 	else
 		ft_sort(ps);
+	ft_print_last_op(0);
 	ft_free_stacks(ps);
 	return (0);
 }

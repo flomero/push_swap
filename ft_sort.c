@@ -6,7 +6,7 @@
 /*   By: flfische <flfische@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 11:37:42 by flfische          #+#    #+#             */
-/*   Updated: 2024/04/08 12:23:00 by flfische         ###   ########.fr       */
+/*   Updated: 2024/04/08 17:01:35 by flfische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ void	ft_sort(t_push_swap *ps)
 	// 	i++;
 	// }
 	count = 0;
-	cmax = ft_lower_sqrt(ps->input.len) * 1.6;
+	cmax = ft_lower_sqrt(ps->input.len) * 1.3;
 	while (ps->a.len > 0)
 	{
 		val = ps->a.stack[0];

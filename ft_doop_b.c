@@ -6,7 +6,7 @@
 /*   By: flfische <flfische@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 15:08:43 by flfische          #+#    #+#             */
-/*   Updated: 2024/04/07 17:24:27 by flfische         ###   ########.fr       */
+/*   Updated: 2024/04/08 13:54:43 by flfische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,21 @@ void	ft_swap_b(t_push_swap *ps)
 {
 	ft_do_swap(&ps->b);
 	if (ps->print)
-		ft_putendl_fd("sb", 1);
+		ft_print_last_op(sb);
 }
 
 void	ft_rot_b(t_push_swap *ps)
 {
 	ft_do_rot(&ps->b);
 	if (ps->print)
-		ft_putendl_fd("rb", 1);
+		ft_print_last_op(rb);
 }
 
 void	ft_revrot_b(t_push_swap *ps)
 {
 	ft_do_revrot(&ps->b);
 	if (ps->print)
-		ft_putendl_fd("rrb", 1);
+		ft_print_last_op(rrb);
 }
 
 void	ft_push_b(t_push_swap *ps)
@@ -39,6 +39,6 @@ void	ft_push_b(t_push_swap *ps)
 	{
 		ft_push_stacks(&ps->a, &ps->b);
 		if (ps->print)
-			ft_putendl_fd("pb", 1);
+			ft_print_last_op(pb);
 	}
 }
