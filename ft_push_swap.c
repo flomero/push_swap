@@ -6,7 +6,7 @@
 /*   By: flfische <flfische@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 16:53:10 by flfische          #+#    #+#             */
-/*   Updated: 2024/04/07 18:37:04 by flfische         ###   ########.fr       */
+/*   Updated: 2024/04/08 11:54:09 by flfische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,6 @@ int	main(int argc, char **argv)
 		ft_sort_three(ps);
 	else if (ps->a.len <= 5)
 		ft_sort_five(ps);
-	else if (ps->a.len <= 100)
-		ft_sort_hundred(ps);
 	else
 		ft_sort(ps);
 	ft_free_stacks(ps);
