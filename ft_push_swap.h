@@ -6,7 +6,7 @@
 /*   By: flfische <flfische@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 16:29:00 by flfische          #+#    #+#             */
-/*   Updated: 2024/04/09 10:17:14 by flfische         ###   ########.fr       */
+/*   Updated: 2024/04/09 14:31:10 by flfische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void		ft_sort(t_push_swap *ps);
 
 // array utils
 int			*ft_realloc_int(int *array, int *size);
-void		ft_free_str_array(char **array);
+void		ft_free_str_array(char **array, int index);
 
 // math
 int			ft_lower_sqrt(int nb);

@@ -6,7 +6,7 @@
 /*   By: flfische <flfische@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 14:07:45 by flfische          #+#    #+#             */
-/*   Updated: 2024/04/09 14:06:12 by flfische         ###   ########.fr       */
+/*   Updated: 2024/04/09 14:31:38 by flfische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int	ft_parse_input(int argc, char **argv, int **array)
 	arr_size = argc - 1;
 	*array = malloc(sizeof(int) * arr_size);
 	if (*array == NULL)
-		return (-1);
+		return (ft_set_input_error(1), 0);
 	while (i < argc)
 	{
 		if (ft_strlen(argv[i]) == 0)
@@ -88,9 +88,9 @@ int	ft_parse_input(int argc, char **argv, int **array)
 			if (j >= arr_size)
 				*array = ft_realloc_int(*array, &arr_size);
 			(*array)[j] = ft_atoi_ps(split[count]);
-			j++;
 			if (*ft_get_input_error() == 1)
-				return (ft_free_str_array(split), 0);
+				return (ft_free_str_array(split, j), 0);
+			j++;
 			free(split[count]);
 			count++;
 		}
