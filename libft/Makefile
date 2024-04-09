@@ -6,12 +6,12 @@
 #    By: flfische <flfische@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/26 10:49:23 by flfische          #+#    #+#              #
-#    Updated: 2024/03/29 17:00:56 by flfische         ###   ########.fr        #
+#    Updated: 2024/04/09 17:07:11 by flfische         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC := cc
-#CFLAGS := -Wall -Wextra -Werror
+CFLAGS := -Wall -Wextra -Werror
 
 
 ################################################################################
@@ -112,6 +112,10 @@ OFILES := $(addprefix $(OBJDIR)/, $(CFILES:%.c=%.o))
 ################################################################################
 ###############                   HEADERS                         ##############
 ################################################################################
+HEADERS := libft.h \
+	get_next_line/get_next_line.h \
+	ft_printf/ft_printf.h
+
 NAME := libft.a
 
 all: $(NAME)
@@ -119,7 +123,7 @@ all: $(NAME)
 $(NAME): $(OBJDIR) $(OFILES)
 	ar rcs $(NAME) $(OFILES)
 
-$(OBJDIR)/%.o: %.c
+$(OBJDIR)/%.o: %.c $(HEADERS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJDIR):
