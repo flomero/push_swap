@@ -6,7 +6,7 @@
 /*   By: flfische <flfische@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 16:53:10 by flfische          #+#    #+#             */
-/*   Updated: 2024/04/09 10:25:57 by flfische         ###   ########.fr       */
+/*   Updated: 2024/04/09 13:57:03 by flfische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,14 @@ int	main(int argc, char **argv)
 	ft_set_input_error(0);
 	len = ft_parse_input(argc, argv, &input.stack);
 	if (len == 0)
-		return (ft_printf("Error\n"), 1);
+		return (ft_putstr_fd("Error\n", 2), 1);
 	if (*ft_get_input_error() == 1)
-		return (free(input.stack), ft_printf("Error\n"), 1);
+		return (free(input.stack), ft_putstr_fd("Error\n", 2), 1);
 	if (ft_is_sorted(input.stack, len))
 		return (free(input.stack), 0);
 	ps = malloc(sizeof(t_push_swap));
 	if (!ps)
-		return (free(input.stack), ft_printf("Error\n"), 1);
+		return (free(input.stack), ft_putstr_fd("Error\n", 2), 1);
 	ft_init_stacks(ps, input.stack, len, 0);
 	ft_bubble_sort(ps->a.stack, ps->a.len);
 	ft_get_indices(&ps->input, &ps->a);
