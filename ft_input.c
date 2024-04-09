@@ -6,7 +6,7 @@
 /*   By: flfische <flfische@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 14:07:45 by flfische          #+#    #+#             */
-/*   Updated: 2024/04/09 16:12:42 by flfische         ###   ########.fr       */
+/*   Updated: 2024/04/09 16:30:29 by flfische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int	ft_parse_split(char **split, int **array, int *j, int *arr_size)
 			*array = ft_realloc_int(*array, arr_size);
 		(*array)[*j] = ft_atoi_ps(split[count]);
 		if (*ft_get_input_error() == 1)
-			return (ft_free_str_array(split, *j), 0);
+			return (ft_free_str_array(split, count), 0);
 		(*j)++;
 		free(split[count]);
 		count++;
