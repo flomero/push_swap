@@ -6,7 +6,7 @@
 /*   By: flfische <flfische@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 16:29:00 by flfische          #+#    #+#             */
-/*   Updated: 2024/04/08 13:52:02 by flfische         ###   ########.fr       */
+/*   Updated: 2024/04/09 10:17:14 by flfische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,6 @@ int			ft_fits_here(t_stack stack, int i);
 // stack sort
 void		ft_sort_three(t_push_swap *ps);
 void		ft_sort_five(t_push_swap *ps);
-void		ft_sort_hundred(t_push_swap *ps);
 void		ft_sort(t_push_swap *ps);
 
 // array utils

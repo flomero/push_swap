@@ -6,7 +6,7 @@
 /*   By: flfische <flfische@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 11:37:42 by flfische          #+#    #+#             */
-/*   Updated: 2024/04/08 17:01:35 by flfische         ###   ########.fr       */
+/*   Updated: 2024/04/09 10:18:17 by flfische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,56 +55,12 @@ void	ft_sort_back(t_push_swap *ps)
 	}
 }
 
-void	ft_sort_hundred(t_push_swap *ps)
-{
-	int	i;
-	int	j;
-	int	cmin;
-	int	cmax;
-
-	i = 0;
-	while (i < CHUNKS_100)
-	{
-		cmin = i * ps->input.len / CHUNKS_100;
-		cmax = ((i + 1) * ps->input.len) / CHUNKS_100;
-		if (i == CHUNKS_100 - 1)
-			cmax = ps->input.len;
-		j = 0;
-		while (j < (cmax - cmin))
-		{
-			ft_get_next_val(ps, (t_range){cmin, cmax});
-			ft_push_b(ps);
-			j++;
-		}
-		i++;
-	}
-	ft_sort_back(ps);
-}
-
 void	ft_sort(t_push_swap *ps)
 {
-	int	i;
 	int	count;
 	int	cmax;
 	int	val;
 
-	// int	cmin;
-	i = 0;
-	// while (i < CHUNKS)
-	// {
-	// 	cmin = i * ps->input.len / CHUNKS;
-	// 	cmax = ((i + 1) * ps->input.len) / CHUNKS;
-	// 	if (i == CHUNKS - 1)
-	// 		cmax = ps->input.len;
-	// 	j = 0;
-	// 	while (j < (cmax - cmin))
-	// 	{
-	// 		ft_get_next_val(ps, (t_range){cmin, cmax});
-	// 		ft_push_b(ps);
-	// 		j++;
-	// 	}
-	// 	i++;
-	// }
 	count = 0;
 	cmax = ft_lower_sqrt(ps->input.len) * 1.3;
 	while (ps->a.len > 0)

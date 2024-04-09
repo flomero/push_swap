@@ -6,7 +6,7 @@
 /*   By: flfische <flfische@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 16:53:10 by flfische          #+#    #+#             */
-/*   Updated: 2024/04/08 14:20:43 by flfische         ###   ########.fr       */
+/*   Updated: 2024/04/09 10:25:57 by flfische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int	main(int argc, char **argv)
 	t_stack		input;
 	t_push_swap	*ps;
 
-	ft_printf("%d\n", ft_lower_sqrt(100));
 	if (argc < 2)
 		return (0);
 	ft_set_input_error(0);
