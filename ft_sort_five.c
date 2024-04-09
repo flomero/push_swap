@@ -6,7 +6,7 @@
 /*   By: flfische <flfische@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 18:48:01 by flfische          #+#    #+#             */
-/*   Updated: 2024/04/07 18:21:10 by flfische         ###   ########.fr       */
+/*   Updated: 2024/04/09 12:17:50 by flfische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,25 +30,16 @@ int	ft_fits_here(t_stack stack, int i)
 
 void	ft_sort_five(t_push_swap *ps)
 {
-	ft_push_b(ps);
-	if (ps->input.len == 5)
-		ft_push_b(ps);
-	ft_sort_three(ps);
-	if (ps->b.stack[0] > ps->b.stack[1] && ps->input.len == 5)
-		ft_swap_b(ps);
-	while (ps->b.len > 0)
+	while (ps->a.len > 3)
 	{
-		if (ft_fits_here(ps->a, ps->b.stack[0]))
-		{
-			ft_push_a(ps);
-		}
+		if (ps->a.stack[0] == 0 || (ps->a.stack[0] == 1 && ps->input.len == 5))
+			ft_push_b(ps);
 		else
 			ft_rot_a(ps);
 	}
-	if (ps->a.stack[1] == 0 || ps->a.stack[2] == 0)
-		while (ps->a.stack[0] != 0)
-			ft_rot_a(ps);
-	else
-		while (ps->a.stack[0] != 0)
-			ft_revrot_a(ps);
+	ft_sort_three(ps);
+	if (ps->b.stack[0] < ps->b.stack[1] && ps->input.len == 5)
+		ft_swap_b(ps);
+	ft_push_a(ps);
+	ft_push_a(ps);
 }
