@@ -6,7 +6,7 @@
 /*   By: flfische <flfische@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 14:07:45 by flfische          #+#    #+#             */
-/*   Updated: 2024/04/09 14:31:38 by flfische         ###   ########.fr       */
+/*   Updated: 2024/04/09 15:07:31 by flfische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,30 @@ int	ft_check_double(int *array, int len)
 	return (0);
 }
 
+int	ft_parse_split(char **split, int **array, int *j, int arr_size)
+{
+	int	count;
+
+	count = 0;
+	while (split[count] != NULL)
+	{
+		if (*j >= arr_size)
+			*array = ft_realloc_int(*array, &arr_size);
+		(*array)[*j] = ft_atoi_ps(split[count]);
+		if (*ft_get_input_error() == 1)
+			return (ft_free_str_array(split, *j), 0);
+		(*j)++;
+		free(split[count]);
+		count++;
+	}
+	free(split);
+	return (1);
+}
+
 int	ft_parse_input(int argc, char **argv, int **array)
 {
 	int		i;
 	int		j;
-	int		count;
 	int		arr_size;
 	char	**split;
 
@@ -82,19 +101,8 @@ int	ft_parse_input(int argc, char **argv, int **array)
 		split = ft_split(argv[i], ' ');
 		if (split == NULL)
 			return (ft_set_input_error(1), 0);
-		count = 0;
-		while (split[count] != NULL)
-		{
-			if (j >= arr_size)
-				*array = ft_realloc_int(*array, &arr_size);
-			(*array)[j] = ft_atoi_ps(split[count]);
-			if (*ft_get_input_error() == 1)
-				return (ft_free_str_array(split, j), 0);
-			j++;
-			free(split[count]);
-			count++;
-		}
-		free(split);
+		if (!ft_parse_split(split, array, &j, arr_size))
+			return (0);
 		i++;
 	}
 	if (ft_check_double(*array, j))

@@ -6,7 +6,7 @@
 /*   By: flfische <flfische@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 16:53:10 by flfische          #+#    #+#             */
-/*   Updated: 2024/04/09 14:13:53 by flfische         ###   ########.fr       */
+/*   Updated: 2024/04/09 15:18:49 by flfische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,20 @@ void	ft_print_ps(t_push_swap *ps)
 	ft_putintarr_fd(ps->a.stack, ps->a.len, 1);
 	ft_printf("b: \n");
 	ft_putintarr_fd(ps->b.stack, ps->b.len, 1);
+}
+
+int	ft_main_sort(t_push_swap *ps)
+{
+	if (ps->a.len == 2)
+		ft_swap_a(ps);
+	else if (ps->a.len == 3)
+		ft_sort_three(ps);
+	else if (ps->a.len <= 5)
+		ft_sort_five(ps);
+	else
+		ft_sort(ps);
+	ft_print_last_op(0);
+	return (0);
 }
 
 int	main(int argc, char **argv)
@@ -46,15 +60,7 @@ int	main(int argc, char **argv)
 	ft_get_indices(&ps->input, &ps->a);
 	ft_memcpy(ps->a.stack, ps->input.stack, sizeof(int) * ps->input.len);
 	ps->print = 1;
-	if (ps->a.len == 2)
-		ft_swap_a(ps);
-	else if (ps->a.len == 3)
-		ft_sort_three(ps);
-	else if (ps->a.len <= 5)
-		ft_sort_five(ps);
-	else
-		ft_sort(ps);
-	ft_print_last_op(0);
+	ft_main_sort(ps);
 	ft_free_stacks(ps);
 	return (0);
 }

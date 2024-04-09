@@ -65,7 +65,4 @@ fclean: clean
 
 re: fclean all
 
-debug: CFLAGS += -g -DDEBUG
-debug: re
-
 .PHONY: all clean fclean re bonus
