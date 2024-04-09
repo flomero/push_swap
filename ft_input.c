@@ -6,7 +6,7 @@
 /*   By: flfische <flfische@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 14:07:45 by flfische          #+#    #+#             */
-/*   Updated: 2024/04/03 15:58:21 by flfische         ###   ########.fr       */
+/*   Updated: 2024/04/09 14:06:12 by flfische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_atoi_ps(const char *str)
 {
-	int	i;
-	int	is_negativ;
-	int	out;
+	int			i;
+	int			is_negativ;
+	long long	out;
 
 	i = 0;
 	out = 0;
@@ -32,12 +32,12 @@ int	ft_atoi_ps(const char *str)
 		out = out * 10 + (str[i] - '0');
 		i++;
 	}
-	if (str[i - 1] == '-' || str[i - 1] == '+')
-		ft_set_input_error(1);
-	if (str[i] != '\0')
+	if (str[i - 1] == '-' || str[i - 1] == '+' || str[i] != '\0')
 		ft_set_input_error(1);
 	if (is_negativ)
 		out = -1 * out;
+	if (out > INT_MAX || out < INT_MIN)
+		ft_set_input_error(1);
 	return (out);
 }
 
