@@ -6,21 +6,11 @@
 /*   By: flfische <flfische@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 16:53:10 by flfische          #+#    #+#             */
-/*   Updated: 2024/04/09 15:51:22 by flfische         ###   ########.fr       */
+/*   Updated: 2024/04/09 17:50:22 by flfische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
-
-void	ft_print_ps(t_push_swap *ps)
-{
-	ft_printf("input: \n");
-	ft_putintarr_fd(ps->input.stack, ps->input.len, 1);
-	ft_printf("a: \n");
-	ft_putintarr_fd(ps->a.stack, ps->a.len, 1);
-	ft_printf("b: \n");
-	ft_putintarr_fd(ps->b.stack, ps->b.len, 1);
-}
 
 int	ft_main_sort(t_push_swap *ps)
 {

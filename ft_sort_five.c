@@ -6,27 +6,11 @@
 /*   By: flfische <flfische@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 18:48:01 by flfische          #+#    #+#             */
-/*   Updated: 2024/04/09 12:17:50 by flfische         ###   ########.fr       */
+/*   Updated: 2024/04/09 17:51:29 by flfische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
-
-int	ft_fits_here(t_stack stack, int i)
-{
-	if (stack.len < 2)
-		return (1);
-	if (i < stack.stack[0] && i > stack.stack[stack.len - 1])
-		return (1);
-	if (stack.stack[0] == 0 && i > stack.stack[stack.len - 1])
-		return (1);
-	if (i > stack.stack[0] && i > stack.stack[stack.len - 1]
-		&& stack.stack[0] < stack.stack[stack.len - 1])
-		return (1);
-	if (i < stack.stack[0] && i < stack.stack[stack.len - 1])
-		return (1);
-	return (0);
-}
 
 void	ft_sort_five(t_push_swap *ps)
 {

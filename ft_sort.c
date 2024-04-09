@@ -6,7 +6,7 @@
 /*   By: flfische <flfische@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 11:37:42 by flfische          #+#    #+#             */
-/*   Updated: 2024/04/09 10:18:17 by flfische         ###   ########.fr       */
+/*   Updated: 2024/04/09 17:51:21 by flfische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,6 @@ void	ft_highest_to_top_b(t_push_swap *ps)
 	else
 		while (ps->b.stack[0] != max)
 			ft_revrot_b(ps);
-}
-
-void	ft_move_to_fit_b(t_push_swap *ps, int i)
-{
-	while (!ft_fits_here(ps->b, i))
-	{
-		ft_rot_b(ps);
-	}
 }
 
 void	ft_sort_back(t_push_swap *ps)

@@ -6,7 +6,7 @@
 /*   By: flfische <flfische@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 16:29:00 by flfische          #+#    #+#             */
-/*   Updated: 2024/04/09 17:48:21 by flfische         ###   ########.fr       */
+/*   Updated: 2024/04/09 17:51:58 by flfische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,6 @@ void		ft_init_stacks(t_push_swap *ps, int *arr, int size, int print);
 // simple sort
 void		ft_bubble_sort(int *arr, int len);
 void		ft_get_indices(t_stack *src, t_stack *dst);
-int			ft_fits_here(t_stack stack, int i);
 
 // stack sort
 void		ft_sort_three(t_push_swap *ps);
