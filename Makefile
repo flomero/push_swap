@@ -15,7 +15,6 @@ CFILES := \
 	ft_sort_three.c \
 	ft_sort_five.c \
 	ft_sort.c \
-	ft_get_next_val.c \
 	ft_maths.c \
 	ft_optimize_print.c \
 
