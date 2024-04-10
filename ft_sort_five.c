@@ -6,7 +6,7 @@
 /*   By: flfische <flfische@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 18:48:01 by flfische          #+#    #+#             */
-/*   Updated: 2024/04/09 17:51:29 by flfische         ###   ########.fr       */
+/*   Updated: 2024/04/10 17:05:36 by flfische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_sort_five(t_push_swap *ps)
 			ft_rot_a(ps);
 	}
 	ft_sort_three(ps);
-	if (ps->b.stack[0] < ps->b.stack[1] && ps->input.len == 5)
+	if (ps->input.len == 5 && ps->b.stack[0] < ps->b.stack[1])
 		ft_swap_b(ps);
 	ft_push_a(ps);
 	ft_push_a(ps);
