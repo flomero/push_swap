@@ -6,12 +6,11 @@
 /*   By: flfische <flfische@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 15:46:27 by flfische          #+#    #+#             */
-/*   Updated: 2024/03/26 10:36:52 by flfische         ###   ########.fr       */
+/*   Updated: 2024/04/10 16:38:15 by flfische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
-#include <stdio.h>
 
 static int	ft_itoa_len(int n)
 {
