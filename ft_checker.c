@@ -6,7 +6,7 @@
 /*   By: flfische <flfische@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 13:55:16 by flfische          #+#    #+#             */
-/*   Updated: 2024/04/09 14:00:57 by flfische         ###   ########.fr       */
+/*   Updated: 2024/04/10 13:45:40 by flfische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,9 +78,9 @@ int	ft_checker_loop(t_push_swap *ps)
 	{
 		op = ft_parse_op(line);
 		if (!op)
-			return (ft_free_stacks(ps), ft_putstr_fd("Error\n", 2), 1);
+			return (free(line), 1);
 		if (!ft_execute_ops(ps, op))
-			return (ft_free_stacks(ps), ft_putstr_fd("Error\n", 2), 1);
+			return (free(line), 1);
 		free(line);
 		line = get_next_line(0);
 	}
